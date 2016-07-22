@@ -1,0 +1,8 @@
+# Any linked content is going to be too big #
+# Only link reference material, not final work product #
+Link*
+
+# Backups of files #
+.ipynb_checkpoints
+~*.*
+*~
