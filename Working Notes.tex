@@ -2,6 +2,7 @@
 \usepackage{geometry}
 \geometry{margin=0.75in}
 \usepackage{titlesec}
+\usepackage[pdftex,urlcolor=blue,colorlinks]{hyperref}
 
 \setcounter{secnumdepth}{4}
 \titleformat{\paragraph}
@@ -11,13 +12,13 @@
 %Gummi|065|=)
 \title{The Future is Now: Building with Robotics and 3D Printers}
 \author{Damon Allen}
-\linespread{1.5}
+\linespread{1.25}
 \begin{document}
 \maketitle
 \section{ Automation, Robotics and 3D Printing in Construction }
 Hello, I am Dr. Damon Allen and I teach at Rinker School of Construction Management at the University of Florida.  Rinker is the oldest continuing building construction program in the country founded in 1935.   With its Master's program starting in 1948 and Ph.D. program beginning in 1988.  In 1988 the Center for Affordable Housing was created.  In 1991 the Center for Construction and the Environment and Center for Safety and Loss Control were created.  A graduate track in Sustainable Construction was first offered in 1999.  In 2003 the School moved to its new building, Rinker Hall, the 26th building in the U.S. to have been awarded LEED Gold certification by the U.S. Green Building Council.  Today The Rinker School has over 7050 graduates (6000 BS, 1000 MS, and 50 PhD), 150 upper division students, 100 Master’s students, 30 PhD students, 20 faculty, and 13 support staff.
 \subsection{About Me}
-For those of you who did not read my bio. online, I am 3rd generation carpenter, with over a decade of experience in Residential, Commercial and Industrial construction, and my Doctorate is in Structural Engineering.  I've had experience developing robotic control systems in research and professionally.  This has consisted of working on design, and construction of electrical systems as well as developing their control software.  I've created and maintain two separate programming help websites and have developed construction design aid web apps.
+For those of you who did not read my bio. online, I am a 3rd generation carpenter, with over two decades of experience in Residential, Commercial and Industrial construction, and my Doctorate is in Structural Engineering.  I've had experience developing robotic control systems in research and professionally.  This has consisted of working on design, and construction of electrical systems as well as developing their control software.  I've created and maintain two separate programming help websites and have developed construction design aid web apps.
 \section{Purpose of this Talk}
 Though the description of my talk was dominated by 3D printing I am going to cover some robotics and automation today since they are related.  You can think of a 3D printer as a specialized robot and there are robots that are blurring this distinction.  I have several goals I hope to accomplish while presenting here.
 
@@ -31,7 +32,7 @@ Though the description of my talk was dominated by 3D printing I am going to cov
 \section{Automation}
 Most of you here are already using forms of automation in the way of scheduling, planning, or design applications.  You might not think of it like that, but consider the way you use Building Information Modeling (BIM) to improve productivity and planning.  These tools generally have features that automate the estimating and cost aspects of the building, as well as construction collision detection. However you should be aware that automation is doing much more than that now.
 \subsubsection{Software Automation}
-Computers are designing structures with the use of genetic algorithms and other machine learning methods.  What you see here are the design alternatives for a ``3D printed'' steel bridge in Amsterdam.  This is one of the cases where robotics and 3D printers overlap, I'll come back to this.  The automation software (Project Dreamcatcher) that was used to create these designs was developed by Autodesk, the makers of AutoCAD and Revit.  The software is given the geometric parameters and load characteristics and uses an iterative design approach, adding and removing material until the structure is optimized.  The one that was ultimately chosen is the branching structure in the upper left.  Since I don't want to run out of time covering 3D printing, and I also want to have time for questions at the end, we'll pick this up later when I talk more about robotics.
+Computers are designing structures with the use of genetic algorithms and other machine learning methods.  What you see here are the design alternatives for a ``3D printed'' steel bridge in Amsterdam.  This is one of the cases where robotics and 3D printers overlap, I'll come back to this.  The automation software (Project Dreamcatcher) used to create these designs was developed by Autodesk, the makers of AutoCAD and Revit.  The software is given the geometric parameters and load characteristics and uses an iterative design approach, adding and removing material until the structure is optimized.  The one that was ultimately chosen is the branching structure in the upper left.  Since I don't want to run out of time covering 3D printing, and I also want to have time for questions at the end, we'll pick this up later when I talk more about robotics.
 \section{3D Printing}
 When I say 3D printing, this is probably what comes to mind, small rapid prototyping machines that create plastic models. This is accurate, but it is becoming much more.
 \subsubsection{Making Models and Prototypes}
@@ -39,9 +40,9 @@ One of the widely used applications of 3D printing is in rapid prototyping and m
 \paragraph{PLA and ABS Filament Printers}
 
 
-Filament printers work by feeding a plastic line through a heating element and placing it a layer at a time on the print bed.  The simplicity of the design and low cost of this type of printer has made it popular among hobbyists.  This type of printing also shares one of the flaws common to many 3D printers, having anisotropic strength characteristics.  The layering leads to natural planes of weakness in the final product.  This is partially dealt with by remelting the previous layer of material.  Though the resulting printed objects can be surprisingly strong, it still leaves a less than perfect finish.  However, with a quick look around I found the MP Select Mini, the OneUP and Prusa i3 printers all available below \$200.  Granted the Prusa i3 is on sale but in December the OneUp was only printer at that price.  Since this type is both inexpensive and easy to operate you should expect to see one of them in your homes and offices soon.  As a side note, one of the reasons you see so many of these 3D printers is the development of the open source movement and the release of the Arduino development platform.  This is also a topic I will come back to.
+Filament printers work by feeding a plastic line through a heating element and placing it a layer at a time on the print bed.  The simplicity of the design and low cost of this type of printer has made it popular among hobbyists.  This type of printing also shares one of the flaws common to many 3D printers, having anisotropic strength characteristics.  The layering leads to natural planes of weakness in the final product.  This is partially dealt with by remelting the previous layer of material.  Though the resulting printed objects can be surprisingly strong, it still leaves a less than perfect finish.  After a quick look around I found the MP Select Mini, the OneUP and Prusa i3 printers all available below \$200.  Granted the Prusa i3 is on sale but in December the OneUp was only printer at that price.  Since this type is both inexpensive and easy to operate you should expect to see one of them in your homes or offices soon.  As a side note, one of the reasons you see so many of these 3D printers, is the development of the open source movement and the release of the Arduino development platform.  This is also a topic I will come back to.
 \paragraph{Powder and Binder}
-The process I'm showing here is technically powder bed fusion where the material is also the binder but I felt that it would be more useful to discuss than the other method.  The normal binder method would uses a chemical reaction to bind the powder material together, which is then built up layer by layer.  When using a binder the result is anisotropic, as before.  This fusion method has similar problems with layers due to residual stresses, but ASTM is working with America Makes, the National Additive Manufacturing Innovation Institute, to develop a new standard to address these problems.  The result will be a standard that will allow for designing around this issue.
+The process I'm showing here is technically powder bed fusion where the material is also the binder but I felt that it would be more useful to discuss than the other method.  The normal binder method would use a chemical reaction to bind the powder material together, which is then built up layer by layer.  When using a binder the result is anisotropic, as before.  This fusion method has similar problems with layers due to residual stresses, but ASTM is working with America Makes, the National Additive Manufacturing Innovation Institute, to develop a new standard to address these problems.  The result will be a standard that will allow for designing around this issue.
 \paragraph{The CLIP Technique}
 Joseph DeSimone (and others) at Carbon3D have developed the Continuous Liquid Interface Production (CLIP) printing technique that creates objects without the problematic layering of other methods.  For those of you who have not heard of it, the way CLIP works is a liquid polymer is cured with the aid of ultraviolet cross sectional image projected from below.  Unlike previous methods using ultraviolet light CLIP prevents the polymer from adhering to the window at the bottom by using an oxygen-permeable membrane which retards the curing process.  The result is a very rapidly printed object built up from the molecular level making it isotropic, thus without any weak planes.  The polymer can be modified chemically so that the end result can have almost any physical property desired, and at a rate 10 to 100 times faster than previous methods.  The developer has even boasted that it may reach speeds of 1000 times faster.  The size limitations for making a 3D print using CLIP are the area of the pool and the number of projectors.  Because of this it is conceivable that CLIP may make its way to construction sites for fabrication of building components.
 \subsubsection{Full Scale Construction}
@@ -85,9 +86,27 @@ If you are interested in one or more of the projects that I've mentioned, or you
 \subsubsection{What you can make for \$100}
 I've been working on this is a prototype spindle cutting robot which was built using scrap wood, unused electronics, parts from old printers and around \$100 of additional hardware (mostly just what is circled).  To use it I simply provide the robot with a drawing of the final product and it goes to work.  It was built for use by a historic organization my wife is involved in to recreate some spindles in a historic building restoration project.  During its development, to demonstrate how easy it can be build a robot now, I deliberately limited myself to using information and techniques that could be quickly found on-line.  
 \section{Conclusion}
+The machines are coming and you can be actively involved.  If for no other reason than to avoid the embarrassment of being mistaken for a chair.
 \section{Questions?}
 
 \section{Contact Information and References}
+
+
+
+\begin{tabular}{ll|l}
+\multicolumn{2}{l}{\textbf{Dr. Damon Allen}}\\
+%\hline
+Address& 340 Rinker Hall&\href{https://github.com/damontallen/SEBC_Talk/blob/master/Reference\%20Links.pdf}{Talk references (pdf)}\\
+ & Gainesville, FL 32611&Slides: \href{http://damontallen.github.io/SEBC_Talk/}{http://damontallen.github.io/SEBC\_Talk/}\\
+
+Email:&\href{mailto:mvbdta@ufl.edu}{mvbdta@ufl.edu} or&The Source images and other material is at:\\
+&\href{mailto:damontallen@gmail.com}{damontallen@gmail.com}&\multicolumn{1}{c}{\href{https://github.com/damontallen/SEBC\_Talk}{https://github.com/damontallen/SEBC\_Talk}}\\
+
+Phone:& \multicolumn{1}{l}{(352)-234-4217}&\\
+% \hline
+\end{tabular}
+
+
 
 
 
